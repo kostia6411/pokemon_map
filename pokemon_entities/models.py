@@ -14,3 +14,8 @@ class PokePokemonEntity(models.Model):
     lon = models.FloatField(verbose_name='долгота покемона')
     appeared_at = models.DateTimeField(verbose_name='время появленя покемона')
     disappeared_at = models.DateTimeField(verbose_name='время ухода покемона')
+    Level = models.IntegerField(verbose_name='Уровень покемона')
+    Health = models.IntegerField(verbose_name='Здоровье покемона')
+    Attack = models.IntegerField(verbose_name='Атака покемона')
+    Protection = models.IntegerField(verbose_name='Защита покемона')
+    Endurance = models.IntegerField(verbose_name='Выносливость покемона')
