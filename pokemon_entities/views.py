@@ -1,5 +1,6 @@
 import folium
 import json
+import get_object_or_404
 
 from django.http import HttpResponseNotFound
 from django.shortcuts import render
@@ -58,7 +59,7 @@ def show_all_pokemons(request):
 
 def show_pokemon(request, pokemon_id):
     now_time = localtime()
-    requested_pokemons = Pokemon.objects.get(id=pokemon_id)
+    requested_pokemons = get_object_or_404(Pokemon, id=pokemon_id)
     pokemon_entities = PokePokemonEntity.objects.filter(pokemon=requested_pokemons, appeared_at__lt=now_time, disappeared_at__gt=now_time)
     pokemon = {
         'img_url': request.build_absolute_uri(requested_pokemons.image.url),
